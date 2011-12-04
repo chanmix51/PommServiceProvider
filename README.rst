@@ -65,7 +65,7 @@ The *application.php* itself is just composed by your controllers. It includes t
         new PommServiceProvider(), 
         array(
             'pomm.class_path' => __DIR__.'/vendor/pomm', 
-            'pomm.connections' => array(
+            'pomm.databases' => array(
                 'default' => array(
                     'dsn' => 'pgsql://user:pass@host:port/dbname
                 )))
@@ -94,7 +94,7 @@ Create the following script:
 
     $scan = new Pomm\Tools\ScanSchemaTool(array(
         'schema' => 'YOUR SCHEMA',
-        'connection' => $app['pomm']->getDatabase(),
+        'database' => $app['pomm']->getDatabase(),
         'prefix_dir' => __DIR__,
         ));
     $scan->execute();

@@ -15,7 +15,7 @@ class PommServiceProvider implements ServiceProviderInterface
 
         $app['pomm'] = $app->share(function() use ($app) {
             $class_name = isset($app['pomm.class_name']) ? $app['pomm.class_name'] : 'Pomm\Service';
-            $service = new $class_name($app['pomm.connections']);
+            $service = new $class_name($app['pomm.databases']);
 
             return $service;
         });
