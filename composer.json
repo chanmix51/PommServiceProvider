@@ -1,0 +1,10 @@
+{
+    "name": "ghub/pomm-service-provider",
+    "type": "library",
+    "description":  "Pomm service provider for the Silex µframwork.",
+    "keywords": ["orm", "postgresql", "database", "pomm", "silex"],
+    "homepage": "https://github.com/chanmix51/PommServiceProvider",
+    "license":  "MIT",
+    "authors":  [ { "name": "Grégoire HUBERT", "email": "hubert.greg@gmail.com", "homepage": "http://www.coolkeums.org" } ],
+    "require": { "php": ">=5.3.0", "pomm": true }
+}
