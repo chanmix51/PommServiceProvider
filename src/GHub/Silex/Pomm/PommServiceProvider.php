@@ -1,6 +1,6 @@
 <?php
 
-namespace GHub\Provider\Pomm;
+namespace GHub\Silex\Pomm;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;

@@ -29,10 +29,10 @@ If you use git, use the submodules:
 ::
 
     $ mkdir vendor
-    $ git submodule add git://github.com/chanmix51/PommServiceProvider.git vendor/GHub/Provider/Pomm 
+    $ git submodule add git://github.com/chanmix51/PommServiceProvider.git vendor/ghub/PommServiceProvider
     $ git submodule add git://github.com/chanmix51/Pomm.git vendor/pomm
 
-Otherwise, you can just download the archives. The ``PommServiceProvider`` namespace is ``GHub\Provider\Pomm``
+Otherwise, you can just download the archive, expand it in a subdirectory and tell the autoloader that ``GHub\Silex\Pomm`` namespace is under the ``src`` project subdirectory.
 
 Using Pomm Service
 -------------------
@@ -69,7 +69,7 @@ The ``application.php`` itself is just composed by your controllers. It includes
     // AUTOLOADING
     ...
     # pomm
-    $app['autoloader']->registerNamespace('GHub', array(__DIR__.'/vendor'));
+    $app['autoloader']->registerNamespace('GHub\\Silex\\Pomm', array(__DIR__.'/vendor/ghub/PommServiceProvider/src'));
     $app['autoloader']->registerNamespace('Model', __DIR__);
 
     // EXTENSIONS
@@ -87,7 +87,7 @@ The ``application.php`` itself is just composed by your controllers. It includes
 
 The *PommServiceProvider* class takes the following arguments: 
 
- - **pomm.class_path**: the path for the Pomm API that will be registered to the autoloader (optional)
+ - **pomm.class_path**: the path for the Pomm API that will be registered to the autoloader (don't use it if you set the autoloader manually)
  - **pomm.class_name**: This is the service class to be used (optional) default is ``Pomm\Service``. The given service class has to extend ``Pomm\Service``.
  - **pomm.databases**: an array of databases in the format ``'name' => array('dsn' => $dsn, 'class' => 'My\\Database\\Class')``.
 
