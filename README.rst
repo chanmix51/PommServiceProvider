@@ -11,7 +11,20 @@ This is the Pomm_ service provider for the Silex_ microframework.
 Installation
 ------------
 
-There are numerous ways to install *PommServiceProvider*. If you use git, use the submodules:
+There are numerous ways to install *PommServiceProvider*. 
+
+Composer
+********
+
+`Composer <http://packagist.org/packages/ghub/pomm-service-provider>`_ is the easiest way to get the Service provider installed and running. Just add your ``composer.json`` the following::
+
+    "ghub/pomm-service-provider":    "master-dev"
+
+in the ``require`` section. Invoke Â«``composer.phar install``Â» and it should be installed with the ``Pomm`` library.
+
+Git submodules
+**************
+If you use git, use the submodules:
 
 ::
 
@@ -19,16 +32,17 @@ There are numerous ways to install *PommServiceProvider*. If you use git, use th
     $ git submodule add git://github.com/chanmix51/PommServiceProvider.git vendor/GHub/Provider/Pomm 
     $ git submodule add git://github.com/chanmix51/Pomm.git vendor/pomm
 
-Otherwise, you can just download the archives. The *PommServiceProvider*'s namespace is *GHub\\Provider\\Pomm**.
+Otherwise, you can just download the archives. The ``PommServiceProvider`` namespace is ``GHub\Provider\Pomm``
 
 Using Pomm Service
 -------------------
 
 It is advised to split your application in 3 files:
+
 bootstrap.php
     Where extensions are loaded and configured
 application.php
-    Where you define the code and bind it to the URLs.
+    Where you define your controllers.
 generate_model.php
     The CLI tool to scan the postgresql's schemas and generate the model files.
 
@@ -42,7 +56,7 @@ This way, the *index.php* file is reduced to its simplest expression:
     
     $app->run();
 
-The *application.php* itself is just composed by your controllers. It includes the configuration by requiring the *bootstrap.php* file:
+The ``application.php`` itself is just composed by your controllers. It includes the configuration by requiring the ``bootstrap.php`` file:
 
 ::
 
@@ -74,12 +88,12 @@ The *application.php* itself is just composed by your controllers. It includes t
 The *PommServiceProvider* class takes the following arguments: 
 
  - **pomm.class_path**: the path for the Pomm API that will be registered to the autoloader (optional)
- - **pomm.class_name**: This is the service class to be used (optional) default is Pomm\\Service. The given service class has to extend Pomm\\Service.
- - **pomm.connections**: an array of connections in the format 'name' => array('dsn' => $dsn, 'class' => 'My\\Database\\Class') 
+ - **pomm.class_name**: This is the service class to be used (optional) default is ``Pomm\Service``. The given service class has to extend ``Pomm\Service``.
+ - **pomm.databases**: an array of databases in the format ``'name' => array('dsn' => $dsn, 'class' => 'My\\Database\\Class')``.
 
-The extension will instanciate the Database class for each of your connection which does not mean it will open connections. Connections are opened if you perform a statement in a connection. If you want to use your own Database class, provide its full path in the 'class' parameter. By default, this parameter is set to Pomm\\Connection\\Database.
+The extension will instanciate the Database class for each of your connection which does not mean it will open connections. Connections are opened if you perform a statement in a connection. If you want to use your own Database class, provide its full path in the ``class`` parameter. By default, this parameter is set to ``Pomm\Connection\Database``.
 
-In the example above, we register a *Model* namespace to the autoloader. I have used model files in *Model/Pomm* and generated files in *Model/Pomm/Map*.
+In the example above, we register a ``Model`` namespace to the autoloader so generated files would be places in ``Model\DbName\SchemaName`` namespace.
 
 Generating Map files
 --------------------
@@ -95,7 +109,7 @@ Create the following script:
     $scan = new Pomm\Tools\ScanSchemaTool(array(
         'schema' => 'YOUR SCHEMA',
         'database' => $app['pomm']->getDatabase(),
-        'prefix_dir' => __DIR__,
+        'prefix_dir' => __DIR__.'/Model',
         ));
     $scan->execute();
 
