@@ -20,4 +20,8 @@ class PommServiceProvider implements ServiceProviderInterface
             return $service;
         });
     }
+
+    public function boot(Application $app)
+    {
+    }
 }
