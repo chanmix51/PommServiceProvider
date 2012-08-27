@@ -76,7 +76,7 @@ The ``application.php`` itself is just composed by your controllers. It includes
     ...
     # pomm
     $app->register(
-        new PommServiceProvider(), 
+        new Pomm\Silex\PommServiceProvider(), 
         array(
             'pomm.class_path' => __DIR__.'/vendor/pomm', 
             'pomm.databases' => array(
