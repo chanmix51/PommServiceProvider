@@ -1,6 +1,6 @@
 {
     "name": "pomm/pomm-service-provider",
-    "replace": "ghub/pomm-service-provider",
+    "replace": { "ghub/pomm-service-provider": "*" },
     "type": "library",
     "description":  "Pomm service provider for the Silex µframwork.",
     "keywords": ["orm", "postgresql", "database", "pomm", "silex"],
