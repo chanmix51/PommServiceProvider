@@ -1,12 +1,27 @@
 {
     "name": "pomm/pomm-service-provider",
-    "replace": { "ghub/pomm-service-provider": "*" },
+    "replace": {
+        "ghub/pomm-service-provider": "*"
+    },
     "type": "library",
     "description":  "Pomm service provider for the Silex µframwork.",
     "keywords": ["orm", "postgresql", "database", "pomm", "silex"],
     "homepage": "https://github.com/chanmix51/PommServiceProvider",
     "license":  "MIT",
-    "authors":  [ { "name": "Grégoire HUBERT", "email": "hubert.greg@gmail.com", "homepage": "http://pomm.coolkeums.org" } ],
-    "require": { "pomm/pomm": "1.0.*", "silex/silex": "1.0.*" },
-    "autoload": { "psr-0": { "Pomm\\Silex": "src" } }
+    "authors": [
+        {
+            "name": "Grégoire HUBERT",
+            "email": "hubert.greg@gmail.com",
+            "homepage": "http://pomm.coolkeums.org"
+        }
+    ],
+    "require": {
+        "pomm/pomm": "1.0.*",
+        "silex/silex": "1.0.*@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Pomm\\Silex": "src"
+        }
+    }
 }

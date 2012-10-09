@@ -3,7 +3,7 @@
 PommServiceProvider for Silex
 =============================
 
-This is the Pomm_ service provider for the Silex_ microframework. 
+This is the Pomm_ service provider for the Silex_ microframework.
 
 .. _Pomm: https://github.com/chanmix51/Pomm
 .. _Silex: https://github.com/fabpot/Silex
@@ -11,14 +11,14 @@ This is the Pomm_ service provider for the Silex_ microframework.
 Installation
 ------------
 
-There are numerous ways to install *PommServiceProvider*. 
+There are numerous ways to install *PommServiceProvider*.
 
 Composer
 ********
 
-`Composer <http://packagist.org/packages/ghub/pomm-service-provider>`_ is the easiest way to get the Service provider installed and running. Just add your ``composer.json`` the following::
+`Composer <http://packagist.org/packages/pomm/pomm-service-provider>`_ is the easiest way to get the Service provider installed and running. Just add your ``composer.json`` the following::
 
-    "ghub/pomm-service-provider":    "master-dev"
+    "pomm/pomm-service-provider":    "master-dev"
 
 in the ``require`` section. Invoke Â«``composer.phar install``Â» and it should be installed with the ``Pomm`` library.
 
@@ -62,32 +62,25 @@ The ``application.php`` itself is just composed by your controllers. It includes
 
     <?php #bootstrap.php
 
-    require_once __DIR__.'/vendor/silex.phar';
+    require_once __DIR__.'/vendor/autoload.php';
 
     $app = new Silex\Application();
-
-    // AUTOLOADING
-    ...
-    # pomm
-    $app['autoloader']->registerNamespace('GHub\\Silex\\Pomm', array(__DIR__.'/vendor/ghub/PommServiceProvider/src'));
-    $app['autoloader']->registerNamespace('Model', __DIR__);
 
     // EXTENSIONS
     ...
     # pomm
     $app->register(
-        new Pomm\Silex\PommServiceProvider(), 
+        new Pomm\Silex\PommServiceProvider(),
         array(
-            'pomm.class_path' => __DIR__.'/vendor/pomm', 
+            'pomm.class_path' => __DIR__.'/vendor/pomm',
             'pomm.databases' => array(
                 'default' => array(
-                    'dsn' => 'pgsql://user:pass@host:port/dbname
+                    'dsn' => 'pgsql://user:pass@host:port/dbname',
                 )))
             );
 
-The *PommServiceProvider* class takes the following arguments: 
+The *PommServiceProvider* class takes the following arguments:
 
- - **pomm.class_path**: the path for the Pomm API that will be registered to the autoloader (don't use it if you set the autoloader manually)
  - **pomm.class_name**: This is the service class to be used (optional) default is ``Pomm\Service``. The given service class has to extend ``Pomm\Service``.
  - **pomm.databases**: an array of databases in the format ``'name' => array('dsn' => $dsn, 'class' => 'My\\Database\\Class')``.
 
