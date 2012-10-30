@@ -3,9 +3,8 @@
 PommServiceProvider for Silex
 =============================
 
-This is the Pomm_ service provider for the Silex_ microframework.
+This is the `Pomm 1.0<https://github.com/chanmix51/Pomm/tree/1.0>`_ service provider for the Silex_ microframework.
 
-.. _Pomm: https://github.com/chanmix51/Pomm
 .. _Silex: https://github.com/fabpot/Silex
 
 Installation
