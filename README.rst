@@ -1,4 +1,3 @@
-
 =============================
 PommServiceProvider for Silex
 =============================
@@ -18,7 +17,7 @@ Composer
 
 `Composer <http://packagist.org/packages/pomm/pomm-service-provider>`_ is the easiest way to get the Service provider installed and running. Just add your ``composer.json`` the following::
 
-    "pomm/pomm-service-provider":    "master-dev"
+    "pomm/pomm-service-provider":    "dev-master"
 
 in the ``require`` section. Invoke Â«``composer.phar install``Â» and it should be installed with the ``Pomm`` library.
 
