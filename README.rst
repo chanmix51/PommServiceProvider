@@ -10,7 +10,7 @@ This is the Pomm_ service provider for the Silex_ microframework.
 Installation
 ------------
 
-There are numerous ways to install *PommServiceProvider*.
+There are numerous ways to install *PommServiceProvider*. The sortest one being to use `this script <https://gist.github.com/chanmix51/3402026>`_. It will create directory tree structure and your ``composer.json`` file (See Composer section below).
 
 Composer
 ********
@@ -19,7 +19,7 @@ Composer
 
     "pomm/pomm-service-provider":    "dev-master"
 
-in the ``require`` section. Invoke Â«``composer.phar install``Â» and it should be installed with the ``Pomm`` library.
+in the ``require`` section. Invoke « ``composer.phar install`` » and it should be installed with the ``Pomm`` library.
 
 Git submodules
 **************
