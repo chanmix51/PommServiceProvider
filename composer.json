@@ -16,8 +16,8 @@
         }
     ],
     "require": {
-        "pomm/pomm": "1.1.*",
-        "silex/silex": ">=1.0,<1.2@dev"
+        "pomm/pomm": "dev-master",
+        "silex/silex": "1.0.*@dev"
     },
     "autoload": {
         "psr-0": {
