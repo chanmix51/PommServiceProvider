@@ -16,20 +16,9 @@ class PommServiceProvider implements ServiceProviderInterface
             return $service;
         });
 
-        $app['pomm.logger'] = $app->share(function() {
-            return new \Pomm\Tools\Logger();
-        });
-
         $app['pomm.connection'] = $app->share(function() use ($app) {
-            $connection = $app['pomm']->getDatabase()
+            return $app['pomm']->getDatabase()
                 ->getConnection();
-
-            if ($app['debug'] === true and isset($app['pomm.logger']))
-            {
-                $connection->registerFilter(new \Pomm\FilterChain\LoggerFilter($app['pomm.logger']));
-            }
-
-            return $connection;
         });
     }
 
