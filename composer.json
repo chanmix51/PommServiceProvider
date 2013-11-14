@@ -23,5 +23,10 @@
         "psr-0": {
             "Pomm\\Silex": "src"
         }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.2.x-dev"
+        }
     }
 }
